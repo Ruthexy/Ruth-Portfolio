@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-// Load all certificate images
-const modules = import.meta.glob(
-  '../assets/certificates/*.{png,jpg,jpeg,webp,svg}',
-  { eager: true, import: 'default' }
-) as Record<string, string>
+// Load all certificate images from assets folder
+const certificateModules = import.meta.glob<{ default: string }>(
+  '/src/assets/Certificates/*.{png,jpg,jpeg,svg,webp}',
+  { eager: true }
+)
 
-const certificates = Object.entries(modules).map(([path, src]) => {
+const certificates = Object.entries(certificateModules).map(([path, module]) => {
   const fileName = path.split('/').pop() || 'certificate'
   const name = fileName.replace(/\.[^/.]+$/, '')
+  const src = module.default
   return { name, src }
 })
 
