@@ -17,7 +17,7 @@ github: 'https://github.com/Ruthexy/TodoApp.git',
 live: 'https://next-todo-app-lyart-ten.vercel.app/',
 },
 {
-title: 'GitHub Repository Explorer',
+title: 'Ventsphere',
 description:
 'A startup investment and mentorship landing page that advertises a company helping entrepreneurs grow their businesses through funding, advice, and partnerships.',
 tech: ['React', 'API', 'Tailwind CSS'],
@@ -41,7 +41,7 @@ github: 'https://github.com/Ruthexy/PFF-CONSULTING-1.git',
 live: 'https://pff-consulting-1.vercel.app/',
 },
 {
-title: 'Todo Management App',
+title: 'FIDIO',
 description:
 'The website functions as a marketing landing page for a video production agency, designed to attract potential clients and encourage them to book a consultation for video production services.',
 tech: ['React', 'TypeScript', 'Tailwind CSS'],
