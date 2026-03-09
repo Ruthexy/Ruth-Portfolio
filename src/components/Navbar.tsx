@@ -17,7 +17,7 @@ animate={{ opacity: 1 }}
 transition={{ duration: 0.6, delay: 0.2 }}
 className="font-semibold tracking-wide"
 >
-Ruth Okwuokenye
+Ruth
 </motion.span>
 <ul className="flex gap-6 text-sm text-gray-400 items-center">
 {navItems.map((item, index) => (

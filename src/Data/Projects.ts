@@ -19,10 +19,10 @@ live: 'https://next-todo-app-lyart-ten.vercel.app/',
 {
 title: 'GitHub Repository Explorer',
 description:
-'A GitHub API-powered app that allows users to search, filter, and explore repositories with smooth pagination.',
+'A startup investment and mentorship landing page that advertises a company helping entrepreneurs grow their businesses through funding, advice, and partnerships.',
 tech: ['React', 'API', 'Tailwind CSS'],
-github: 'https://github.com/Ruthexy',
-live: 'https://your-github-explorer.vercel.app',
+github: 'https://github.com/Ruthexy/Ventsphere.git',
+live: 'https://ventsphere-ruth.vercel.app/',
 },
 {
 title: 'Space Tourism Website',
@@ -43,10 +43,10 @@ live: 'https://pff-consulting-1.vercel.app/',
 {
 title: 'Todo Management App',
 description:
-'A responsive task management application with filtering, pagination, and detailed views. Focused on clean UI and state management.',
+'The website functions as a marketing landing page for a video production agency, designed to attract potential clients and encourage them to book a consultation for video production services.',
 tech: ['React', 'TypeScript', 'Tailwind CSS'],
-github: 'https://github.com/Ruthexy/TodoApp.git',
-live: 'https://next-todo-app-lyart-ten.vercel.app/',
+github: 'https://github.com/Ruthexy/Fidio.git',
+live: 'https://fidio.vercel.app/',
 },
 {
 title: 'GitHub Repository Explorer',
