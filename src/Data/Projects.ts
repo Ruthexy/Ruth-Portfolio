@@ -49,7 +49,7 @@ github: 'https://github.com/Ruthexy/Fidio.git',
 live: 'https://fidio.vercel.app/',
 },
 {
-title: 'GitHub Repository Explorer',
+title: 'Interactive Card',
 description:
 'A frontend-driven platform where users request software projects by submitting requirements through a structured form, with categorized project types and a service-oriented flow.',
 tech: ['React', 'API', 'Tailwind CSS'],
