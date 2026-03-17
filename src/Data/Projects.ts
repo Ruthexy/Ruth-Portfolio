@@ -53,7 +53,7 @@ title: 'GitHub Repository Explorer',
 description:
 'A GitHub API-powered app that allows users to search, filter, and explore repositories with smooth pagination.',
 tech: ['React', 'API', 'Tailwind CSS'],
-github: 'https://github.com/Ruthexy',
-live: 'https://your-github-explorer.vercel.app',
+github: 'https://github.com/Ruthexy/INTERACTIVE-PROJECT.git',
+live: 'https://interactive-project-hd97.vercel.app/',
 },
 ]
