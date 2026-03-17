@@ -51,7 +51,7 @@ live: 'https://fidio.vercel.app/',
 {
 title: 'GitHub Repository Explorer',
 description:
-'A GitHub API-powered app that allows users to search, filter, and explore repositories with smooth pagination.',
+'A frontend-driven platform where users request software projects by submitting requirements through a structured form, with categorized project types and a service-oriented flow.',
 tech: ['React', 'API', 'Tailwind CSS'],
 github: 'https://github.com/Ruthexy/INTERACTIVE-PROJECT.git',
 live: 'https://interactive-project-hd97.vercel.app/',
