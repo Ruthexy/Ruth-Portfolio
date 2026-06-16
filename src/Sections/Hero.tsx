@@ -1,106 +1,139 @@
 import { motion } from 'framer-motion'
 
-
 const containerVariants = {
-hidden: { opacity: 0 },
-visible: {
-opacity: 1,
-transition: {
-staggerChildren: 0.2,
-delayChildren: 0.3,
-},
-},
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.18, delayChildren: 0.3 },
+  },
 }
 
 const itemVariants = {
-hidden: { opacity: 0, y: 20 },
-visible: {
-opacity: 1,
-y: 0,
-transition: {
-duration: 0.8,
-},
-},
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 }
 
 export default function Hero() {
-return (
-<section className="min-h-screen flex items-center justify-center px-6 pt-16">
-<motion.div
-variants={containerVariants}
-initial="hidden"
-animate="visible"
-className="max-w-3xl text-center"
->
-<motion.div variants={itemVariants}>
-<h1 className="text-4xl md:text-6xl font-bold leading-tight">
-Hi, I'm{" "}
-<motion.span
-className="text-accent inline-block"
-animate={{ backgroundPosition: ["0%", "100%"] }}
-transition={{ duration: 8, repeat: Infinity }}
-style={{
-backgroundImage: "linear-gradient(90deg, #6366f1, #a78bfa, #6366f1)",
-backgroundSize: "200% 200%",
-WebkitBackgroundClip: "text",
-WebkitTextFillColor: "transparent",
-}}
->
-Ruth Okwuokenye
-</motion.span>
-</h1>
-</motion.div>
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
 
+      {/* Gradient orb — top left */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none"
+        style={{ background: 'rgba(99, 102, 241, 0.15)' }}
+        animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-<motion.p variants={itemVariants} className="mt-6 text-gray-400 text-lg">
-A junior frontend developer focused on building clean, responsive,
-and user‑friendly web experiences.
-</motion.p>
+      {/* Gradient orb — bottom right */}
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ background: 'rgba(167, 139, 250, 0.09)' }}
+        animate={{ scale: [1, 1.15, 1], x: [0, -18, 0], y: [0, 18, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+      />
 
+      {/* Content */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-3xl text-center"
+      >
+        {/* Available badge */}
+        <motion.div variants={itemVariants} className="mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          Available for work
+        </motion.div>
 
-<motion.div
-variants={itemVariants}
-className="mt-10 flex gap-4 justify-center flex-wrap"
->
-<motion.a
-href="#projects"
-whileHover={{ scale: 1.05 }}
-whileTap={{ scale: 0.95 }}
-className="px-6 py-3 bg-accent text-white rounded-xl font-medium hover:opacity-90 transition"
->
-View Projects
-</motion.a>
+        {/* Heading */}
+        <motion.div variants={itemVariants}>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+            Hi, I'm{' '}
+            <motion.span
+              className="inline-block"
+              animate={{ backgroundPosition: ['0%', '100%'] }}
+              transition={{ duration: 8, repeat: Infinity }}
+              style={{
+                backgroundImage: 'linear-gradient(90deg, #6366f1, #a78bfa, #6366f1)',
+                backgroundSize: '200% 200%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Ruth Okwuokenye
+            </motion.span>
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-400 mt-3">
+            Frontend Developer
+          </h2>
+        </motion.div>
 
+        {/* Description */}
+        <motion.p
+          variants={itemVariants}
+          className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed"
+        >
+          I build clean, responsive, and user-friendly web experiences using React
+          and modern tooling — with a focus on detail and performance.
+        </motion.p>
 
-<motion.a
-href="#contact"
-whileHover={{ scale: 1.05 }}
-whileTap={{ scale: 0.95 }}
-className="px-6 py-3 border border-white/20 rounded-xl font-medium hover:bg-white/5 transition"
->
-Contact Me
-</motion.a>
-</motion.div>
+        {/* CTA buttons */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-10 flex gap-4 justify-center flex-wrap"
+        >
+          <motion.a
+            href="#projects"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-7 py-3 bg-accent text-white rounded-xl font-semibold hover:opacity-90 transition shadow-lg shadow-accent/25"
+          >
+            View Projects
+          </motion.a>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-7 py-3 border border-white/20 rounded-xl font-semibold hover:bg-white/5 transition"
+          >
+            Contact Me
+          </motion.a>
+        </motion.div>
 
-
-<motion.div
-className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-animate={{ y: [0, 10, 0] }}
-transition={{ duration: 2, repeat: Infinity }}
->
-<svg
-className="w-6 h-6 text-accent"
-fill="none"
-strokeLinecap="round"
-strokeLinejoin="round"
-strokeWidth="2"
-viewBox="0 0 24 24"
-stroke="currentColor"
->
-<path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-</svg>
-</motion.div>
-</motion.div>
-</section>
-)
+        {/* Scroll indicator */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-16 flex justify-center"
+        >
+          <motion.a
+            href="#about"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="text-gray-500 hover:text-accent transition-colors"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.a>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
 }

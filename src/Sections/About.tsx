@@ -33,7 +33,7 @@ viewport={{ once: true, margin: "-100px" }}
 >
 <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-6">About Me</motion.h2>
 <motion.p variants={itemVariants} className="text-gray-400 leading-relaxed">
-I’m a junior frontend developer who enjoys turning complex problems
+I’m a frontend developer who enjoys turning complex problems
 into simple, beautiful, and intuitive user interfaces. I care deeply
 about clean code, accessibility, and building experiences that feel
 natural to use.
