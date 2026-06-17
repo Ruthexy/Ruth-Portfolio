@@ -1,0 +1,109 @@
+---
+title: TypeScript Patterns I Use Every Day
+date: 2025-04-03
+category: TypeScript
+description: A practical guide to TypeScript patterns that eliminate runtime errors, improve autocomplete, and make refactoring effortless — patterns I actually reach for daily.
+readingTime: 6 min
+featured: false
+---
+
+# TypeScript Patterns I Use Every Day
+
+TypeScript's value compounds over time. A well-typed codebase from month one is still easy to refactor at month twelve. Here are the patterns I've settled on after building production applications.
+
+## Branded types for domain safety
+
+Plain `string` types are too permissive. When your functions accept both a `UserId` and a `ProjectId`, TypeScript can't tell them apart:
+
+```typescript
+// Bug waiting to happen
+function getProject(userId: string, projectId: string) { ... }
+getProject(project.id, user.id) // TypeScript: fine. Runtime: disaster.
+```
+
+Branded types make these distinct:
+
+```typescript
+type UserId = string & { readonly _brand: 'UserId' }
+type ProjectId = string & { readonly _brand: 'ProjectId' }
+
+function getProject(userId: UserId, projectId: ProjectId) { ... }
+
+// Now TypeScript catches the swap
+getProject(project.id as ProjectId, user.id as UserId) // Error!
+```
+
+## `satisfies` instead of `as`
+
+`as` lies to TypeScript. `satisfies` validates without changing the inferred type:
+
+```typescript
+const routes = {
+  home: '/',
+  about: '/about',
+  work: '/work',
+} satisfies Record<string, `/${string}`>
+
+// TypeScript knows the exact keys and values
+routes.home // type: '/'
+routes.missing // Error: Property 'missing' does not exist
+```
+
+## Exhaustive union handling
+
+When you switch over a union, `never` ensures you've handled every case:
+
+```typescript
+type Status = 'idle' | 'loading' | 'success' | 'error'
+
+function getLabel(status: Status): string {
+  switch (status) {
+    case 'idle': return 'Ready'
+    case 'loading': return 'Loading...'
+    case 'success': return 'Done'
+    case 'error': return 'Failed'
+    default:
+      const _exhaustive: never = status
+      return _exhaustive
+  }
+}
+
+// Add a new status? TypeScript errors here immediately.
+```
+
+## Infer types from data, not from declarations
+
+Instead of maintaining a separate type and a data structure in sync:
+
+```typescript
+// Fragile: two things to keep in sync
+type Category = 'React' | 'TypeScript' | 'Design'
+const categories: Category[] = ['React', 'TypeScript', 'Design']
+
+// Better: derive the type from the data
+const CATEGORIES = ['React', 'TypeScript', 'Design'] as const
+type Category = typeof CATEGORIES[number]
+```
+
+Adding to `CATEGORIES` automatically updates `Category`.
+
+## Generic components with proper constraints
+
+When building reusable components, generic constraints prevent misuse:
+
+```typescript
+interface SelectProps<T extends { id: string; label: string }> {
+  options: T[]
+  value: T | null
+  onChange: (option: T) => void
+  renderOption?: (option: T) => React.ReactNode
+}
+
+function Select<T extends { id: string; label: string }>(props: SelectProps<T>) {
+  // TypeScript knows the full shape of T
+}
+```
+
+---
+
+These patterns aren't about being clever. They're about making invalid states unrepresentable, so the type system does the bug-catching work instead of your test suite.

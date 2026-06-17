@@ -1,0 +1,108 @@
+---
+title: Building Scalable React Applications in 2025
+date: 2025-05-12
+category: React
+description: How I structure large-scale React projects — from folder architecture to state management patterns that actually scale without becoming a maintenance burden.
+readingTime: 8 min
+featured: true
+---
+
+# Building Scalable React Applications in 2025
+
+Scalability in React is not about the number of components you have. It's about whether a new engineer — or you, six months from now — can understand the codebase in under an hour and contribute confidently within a day.
+
+Here's how I structure projects to make that possible.
+
+## The folder structure that actually scales
+
+Most tutorials start you with a flat `components/` folder. That works at 10 components. At 50, it becomes archaeology.
+
+I use a feature-first structure:
+
+```
+src/
+├── components/       # Shared, generic UI (Button, Modal, Badge)
+├── features/
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── api/
+│   │   └── index.ts  ← public API
+│   └── projects/
+├── pages/            # Route-level components only
+├── lib/              # Third-party wrappers
+└── types/            # Shared TypeScript types
+```
+
+The key insight: **features are vertical slices**. Everything a feature needs lives inside that folder. When you delete a feature, you delete the folder — no hunting across the codebase.
+
+The `index.ts` barrel file at each feature root exports only what other features should touch. This creates an explicit API boundary.
+
+## State management: less is more
+
+I see three categories of state:
+
+1. **Server state** — data from an API (use TanStack Query)
+2. **UI state** — modal open/closed, active tab (use `useState` or `useReducer`)
+3. **Shared client state** — authenticated user, theme preference (use Zustand or React Context)
+
+The mistake I see most often is reaching for Redux or Zustand for server state. TanStack Query handles caching, background refetching, and optimistic updates better than any solution you'd build manually.
+
+```typescript
+// Before: over-engineered Redux for server data
+const { data: projects } = useSelector(selectProjects)
+dispatch(fetchProjects())
+
+// After: TanStack Query
+const { data: projects } = useQuery({
+  queryKey: ['projects'],
+  queryFn: fetchProjects,
+})
+```
+
+## TypeScript patterns that prevent bugs
+
+The single most valuable TypeScript pattern I use is **discriminated unions** for async state:
+
+```typescript
+type AsyncState<T> =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: string }
+```
+
+This makes impossible states impossible. You can't accidentally render `data` when status is `'loading'` — TypeScript won't let you.
+
+## Component design: API-first thinking
+
+Before I write a component, I write how I want to use it:
+
+```tsx
+// What I want to write:
+<Button variant="primary" size="lg" loading={isPending}>
+  Save changes
+</Button>
+
+// Then I implement the API
+```
+
+This forces me to think about the consumer experience before implementation details.
+
+## Testing: test behavior, not implementation
+
+I test at the feature level, not the component level. If I rename a class or restructure a component internally, tests shouldn't break.
+
+```typescript
+// Bad: testing implementation
+expect(wrapper.find('.submit-btn').exists()).toBe(true)
+
+// Good: testing behavior
+expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument()
+await userEvent.click(screen.getByRole('button', { name: /save/i }))
+expect(screen.getByText(/saved successfully/i)).toBeInTheDocument()
+```
+
+---
+
+Scalability is a discipline, not a framework. The patterns above are not silver bullets — they're constraints that make decisions obvious, so you can focus mental energy on the problems that actually matter.
