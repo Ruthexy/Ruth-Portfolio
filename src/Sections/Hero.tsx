@@ -13,6 +13,12 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 }
 
+const stats = [
+  { value: '6+', label: 'Projects Built' },
+  { value: '15+', label: 'Technologies' },
+  { value: '∞', label: 'Passion for Code' },
+]
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden">
@@ -49,7 +55,10 @@ export default function Hero() {
         className="relative z-10 max-w-3xl text-center"
       >
         {/* Available badge */}
-        <motion.div variants={itemVariants} className="mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm">
+        <motion.div
+          variants={itemVariants}
+          className="mb-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm"
+        >
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           Available for work
         </motion.div>
@@ -77,13 +86,13 @@ export default function Hero() {
           </h2>
         </motion.div>
 
-        {/* Description */}
+        {/* Description — one sharp sentence (Alex Naraghi #6 pattern) */}
         <motion.p
           variants={itemVariants}
           className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed"
         >
-          I build clean, responsive, and user-friendly web experiences using React
-          and modern tooling — with a focus on detail and performance.
+          I turn ideas into fast, accessible web experiences — clean code, pixel-perfect UI,
+          and a user-first mindset in every project.
         </motion.p>
 
         {/* CTA buttons */}
@@ -109,11 +118,21 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Stats row — social proof (Gift Egwuenu #11, Stereo Creative #20) */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 flex justify-center"
+          className="mt-12 pt-8 border-t border-white/10 flex justify-center gap-10 flex-wrap"
         >
+          {stats.map(stat => (
+            <div key={stat.label} className="text-center">
+              <div className="text-2xl font-bold text-accent">{stat.value}</div>
+              <div className="text-xs text-gray-500 mt-1 tracking-wide uppercase">{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div variants={itemVariants} className="mt-12 flex justify-center">
           <motion.a
             href="#about"
             animate={{ y: [0, 10, 0] }}

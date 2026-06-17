@@ -5,6 +5,8 @@ import spaceTourismImg from '../assets/SpaceTourism.png'
 import fidioImg from '../assets/Fidio.png'
 import interactiveCardImg from '../assets/InteractiveCard.png'
 
+export type ProjectCategory = 'Full Stack' | 'Frontend' | 'Landing Page'
+
 export interface Project {
   title: string
   description: string
@@ -14,6 +16,7 @@ export interface Project {
   gradient: string
   highlights: string[]
   image: string
+  category: ProjectCategory
 }
 
 export const Projects: Project[] = [
@@ -26,6 +29,7 @@ export const Projects: Project[] = [
     live: 'https://task-flow-4j2lqdhd8-circle2-eacf58b9.vercel.app',
     gradient: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
     image: taskflowImg,
+    category: 'Full Stack',
     highlights: [
       'Kanban and Calendar views for flexible task tracking',
       'Real-time team collaboration with workspace management',
@@ -42,6 +46,7 @@ export const Projects: Project[] = [
     live: 'https://flow-sync-j2nfpjeyz-circle2-eacf58b9.vercel.app',
     gradient: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
     image: flowsyncImg,
+    category: 'Full Stack',
     highlights: [
       'Workflow automation with real-time status monitoring',
       'TanStack Query for efficient server-state management',
@@ -58,6 +63,7 @@ export const Projects: Project[] = [
     live: 'https://space-tourism-pink-nine.vercel.app',
     gradient: 'linear-gradient(135deg, #1e293b 0%, #3730a3 100%)',
     image: spaceTourismImg,
+    category: 'Frontend',
     highlights: [
       'Multi-page interactive experience with tab navigation',
       'Pixel-perfect implementation of the Frontend Mentor design',
@@ -74,6 +80,7 @@ export const Projects: Project[] = [
     live: 'https://interactive-project-hd97.vercel.app/',
     gradient: 'linear-gradient(135deg, #059669 0%, #0d9488 100%)',
     image: interactiveCardImg,
+    category: 'Frontend',
     highlights: [
       'Multi-step form with validation and dynamic fields',
       'Categorized service types with conditional rendering',
@@ -90,6 +97,7 @@ export const Projects: Project[] = [
     live: 'https://ventsphere-ruth.vercel.app/',
     gradient: 'linear-gradient(135deg, #ea580c 0%, #f59e0b 100%)',
     image: ventsphereImg,
+    category: 'Landing Page',
     highlights: [
       'Conversion-focused landing page design',
       'Animated sections with smooth scroll interactions',
@@ -106,6 +114,7 @@ export const Projects: Project[] = [
     live: 'https://fidio.vercel.app/',
     gradient: 'linear-gradient(135deg, #dc2626 0%, #e11d48 100%)',
     image: fidioImg,
+    category: 'Landing Page',
     highlights: [
       'Cinematic visual storytelling through bold design',
       'Scroll-triggered animations for immersive experience',
