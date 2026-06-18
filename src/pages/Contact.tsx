@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Mail, FileDown, ArrowUpRight, Copy, Check } from 'lucide-react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import resumePDF from '../assets/Ruth_Okwuokenye_Frontend_CV (1).pdf'
 
 const EMAIL = 'ruthokwuokenye2019@gmail.com'
 
@@ -148,7 +149,7 @@ export default function Contact() {
                       <p className="text-sm text-ink-2">Ruth Okwuokenye — Frontend Engineer</p>
                     </div>
                     <a
-                      href="/resume.pdf"
+                      href={resumePDF}
                       download
                       className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 border border-accent/20 text-accent text-xs font-medium hover:bg-accent/15 transition-all"
                     >

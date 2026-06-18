@@ -99,13 +99,13 @@ export const stackItems: StackItem[] = [
 
   // AI
   {
-    name: 'Claude',
+    name: 'Claude Code',
     description: 'AI assistant by Anthropic',
     why: 'Claude is my go-to for reasoning through architectural decisions, reviewing code for correctness, and exploring trade-offs. It works best as a thinking partner, not a code generator.',
     category: 'AI',
   },
   {
-    name: 'ChatGPT',
+    name: 'Codex',
     description: 'AI assistant by OpenAI',
     why: 'ChatGPT is my go-to for generating boilerplate code, writing documentation, and exploring new libraries. It\'s a great starting point, but I always review and refine the output.',
     category: 'AI',
