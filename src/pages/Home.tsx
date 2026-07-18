@@ -232,8 +232,8 @@ export default function Home() {
               className="grid grid-cols-2 gap-3"
             >
               {[
-                { label: 'Primary', items: ['React', 'TypeScript', 'Tailwind CSS'] },
-                { label: 'AI Tools', items: ['Claude Code', 'ChatGPT', 'GitHub Copilot'] },
+                { label: 'Primary', items: ['Next', 'React', 'TypeScript', 'Tailwind CSS'] },
+                { label: 'AI Tools', items: ['Claude Code', 'Codex', 'GitHub Copilot'] },
                 { label: 'Motion', items: ['Framer Motion', 'CSS Animations'] },
                 { label: 'Tooling', items: ['Vite', 'Git', 'Figma'] },
               ].map(group => (

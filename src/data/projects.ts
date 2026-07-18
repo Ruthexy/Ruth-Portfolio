@@ -41,8 +41,8 @@ export const projects: Project[] = [
     github: 'https://github.com/Ruthexy/TaskFlow.git',
     live: 'https://task-flow-4j2lqdhd8-circle2-eacf58b9.vercel.app',
     image: taskflowImg,
-    category: 'Full Stack',
-    year: '2024',
+    category: 'Frontend',
+    year: '2026',
     featured: true,
     highlights: [
       'Kanban and Calendar views for flexible task tracking',
@@ -69,8 +69,8 @@ export const projects: Project[] = [
     github: 'https://github.com/Ruthexy/FlowSync.git',
     live: 'https://flow-sync-j2nfpjeyz-circle2-eacf58b9.vercel.app',
     image: flowsyncImg,
-    category: 'Full Stack',
-    year: '2024',
+    category: 'Frontend',
+    year: '2026',
     featured: true,
     highlights: [
       'Workflow automation with real-time status monitoring',
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     live: 'https://space-tourism-pink-nine.vercel.app',
     image: spaceTourismImg,
     category: 'Frontend',
-    year: '2024',
+    year: '2025',
     featured: false,
     highlights: [
       'Multi-page interactive experience with tab navigation',
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     live: 'https://interactive-project-hd97.vercel.app/',
     image: interactiveCardImg,
     category: 'Frontend',
-    year: '2023',
+    year: '2025',
     featured: false,
     highlights: [
       'Multi-step form with per-step validation',
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     live: 'https://ventsphere-ruth.vercel.app/',
     image: ventsphereImg,
     category: 'Landing Page',
-    year: '2023',
+    year: '2024',
     featured: false,
     highlights: [
       'Conversion-focused layout with benefit-led narrative',
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     live: 'https://fidio.vercel.app/',
     image: fidioImg,
     category: 'Landing Page',
-    year: '2023',
+    year: '2024',
     featured: false,
     highlights: [
       'Cinematic visual storytelling through bold typography',

@@ -158,7 +158,7 @@ export default function About() {
               },
               {
                 category: 'AI Tools',
-                skills: ['Claude Code', 'GitHub Copilot', 'ChatGPT' ],
+                skills: ['Claude Code', 'GitHub Copilot', 'Codex' ],
               },
               {
                 category: 'Testing & Quality',
