@@ -4,6 +4,7 @@ import ventsphereImg from '../assets/Ventsphere.png'
 import spaceTourismImg from '../assets/SpaceTourism.png'
 import fidioImg from '../assets/Fidio.png'
 import interactiveCardImg from '../assets/InteractiveCard.png'
+import nexaPayImg from '../assets/NexaPay.png'
 
 export type ProjectCategory = 'Full Stack' | 'Frontend' | 'Landing Page'
 
@@ -28,6 +29,34 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'nexapay',
+    title: 'NexaPay',
+    tagline: 'Banking, reimagined',
+    description: 'A responsive fintech web application that provides users with a streamlined digital banking experience, including wallet management, payments, and transaction tracking through an intuitive and modern interface.',
+    overview: 'NexaPay is a full-stack digital banking platform giving users a single place to manage wallets, move money, pay bills, and track spending. The interface is built to feel as polished and trustworthy as a modern neobank.',
+    problem: 'Everyday banking tasks — sending money, paying bills, tracking spending — are often scattered across clunky, inconsistent interfaces. Users needed a single, cohesive experience that felt fast and secure.',
+    solution: 'Built a wallet-centric dashboard surfacing balance, inflow/outflow, and account health at a glance. Implemented core banking flows — send, request, add money, airtime, bill payments — behind a consistent, accessible UI, with React Router driving a clean multi-page structure.',
+    outcome: 'Delivered a production-quality banking UI with a working demo flow (wallets, bills, cards, subscriptions, savings, insights) that closely mirrors real fintech products, deployed and publicly accessible on Vercel.',
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router'],
+    github: 'https://github.com/Ruthexy/NexaPay.git',
+    live: 'https://nexa-pay-two.vercel.app/',
+    image: nexaPayImg,
+    category: 'Full Stack',
+    year: '2026',
+    featured: true,
+    highlights: [
+      'Unified wallet dashboard with balance, inflow/outflow, and account health tracking',
+      'Core banking flows: send, request, add money, airtime, and bill payments',
+      'Dedicated modules for savings, cards, subscriptions, and spending insights',
+      'Clean, modern interface built with security and trust in mind',
+    ],
+    challenges: [
+      'Designing a dashboard information hierarchy that surfaces the most relevant financial data without overwhelming the user.',
+      'Structuring routing and state across many interconnected modules (wallets, bills, cards, savings) while keeping the codebase maintainable.',
+      'Achieving a fintech-grade visual polish that builds user trust and feels production-ready.',
+    ],
+  },
   {
     slug: 'taskflow',
     title: 'TaskFlow',
